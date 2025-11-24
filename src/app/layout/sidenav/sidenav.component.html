@@ -1,0 +1,38 @@
+<mat-nav-list class="sidenav-list">
+    <a mat-list-item routerLink="/pedidos" routerLinkActive="active-link">
+        <lucide-icon [img]="UtensilsIcon" matListItemIcon></lucide-icon>
+        <span matListItemTitle>Toma de Pedidos</span>
+    </a>
+    <a mat-list-item routerLink="/domicilio" routerLinkActive="active-link">
+        <lucide-icon [img]="TruckIcon" matListItemIcon></lucide-icon>
+        <span matListItemTitle>Domicilio</span>
+    </a>
+    <a mat-list-item routerLink="/caja" routerLinkActive="active-link">
+        <lucide-icon [img]="CashRegisterIcon" matListItemIcon></lucide-icon>
+        <span matListItemTitle>Caja</span>
+    </a>
+
+    <mat-expansion-panel class="others-panel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <lucide-icon [img]="MoreHorizontalIcon" class="panel-icon"></lucide-icon>
+                <span>Otros</span>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list dense>
+            <a mat-list-item routerLink="/otros/pagina1" routerLinkActive="active-link">
+                <lucide-icon [img]="FileTextIcon" matListItemIcon></lucide-icon>
+                <span matListItemTitle>Página 1</span>
+            </a>
+            <a mat-list-item routerLink="/otros/pagina2" routerLinkActive="active-link">
+                <lucide-icon [img]="DatabaseIcon" matListItemIcon></lucide-icon>
+                <span matListItemTitle>Página 2</span>
+            </a>
+            <a mat-list-item routerLink="/otros/pagina3" routerLinkActive="active-link">
+                <lucide-icon [img]="SettingsIcon" matListItemIcon></lucide-icon>
+                <span matListItemTitle>Página 3</span>
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>
+</mat-nav-list>

@@ -1,0 +1,16 @@
+.page-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.page-content {
+    margin-top: 16px;
+}

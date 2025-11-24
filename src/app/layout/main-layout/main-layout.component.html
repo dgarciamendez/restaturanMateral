@@ -1,0 +1,23 @@
+<div class="main-container" [class.is-mobile]="isHandset$ | async">
+    <app-header></app-header>
+
+    <mat-sidenav-container class="sidenav-container" *ngIf="!(isHandset$ | async); else mobileContent">
+        <mat-sidenav mode="side" opened class="sidenav">
+            <app-sidenav></app-sidenav>
+        </mat-sidenav>
+        <mat-sidenav-content class="sidenav-content">
+            <div class="content-wrapper">
+                <router-outlet></router-outlet>
+            </div>
+            <app-footer></app-footer>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <ng-template #mobileContent>
+        <div class="mobile-content-wrapper">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+        <app-mobile-navbar></app-mobile-navbar>
+    </ng-template>
+</div>

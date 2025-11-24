@@ -1,0 +1,35 @@
+.sidenav-list {
+    padding-top: 0;
+}
+
+.active-link {
+    background-color: var(--accent-color) !important;
+    color: white !important;
+
+    ::ng-deep .lucide {
+        color: white !important;
+    }
+}
+
+.others-panel {
+    box-shadow: none !important;
+    background: transparent;
+
+    mat-expansion-panel-header {
+        padding: 0 16px;
+        height: 80px; // Match list item height if possible, or default
+    }
+
+    .panel-icon {
+        margin-right: 16px;
+    }
+}
+
+// Sizing from requirements
+a[mat-list-item] {
+    height: 80px !important; // Desktop requirement
+}
+
+::ng-deep .mat-mdc-list-item-icon {
+    color: rgba(0, 0, 0, 0.54);
+}

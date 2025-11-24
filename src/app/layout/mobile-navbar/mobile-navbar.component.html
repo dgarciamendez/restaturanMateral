@@ -1,0 +1,18 @@
+<mat-toolbar class="mobile-navbar">
+    <a routerLink="/pedidos" routerLinkActive="active-link" class="nav-item">
+        <lucide-icon [img]="UtensilsIcon" size="24"></lucide-icon>
+        <span class="nav-label">Pedidos</span>
+    </a>
+    <a routerLink="/domicilio" routerLinkActive="active-link" class="nav-item">
+        <lucide-icon [img]="TruckIcon" size="24"></lucide-icon>
+        <span class="nav-label">Domicilio</span>
+    </a>
+    <a routerLink="/caja" routerLinkActive="active-link" class="nav-item">
+        <lucide-icon [img]="CashRegisterIcon" size="24"></lucide-icon>
+        <span class="nav-label">Caja</span>
+    </a>
+    <button (click)="openOthersMenu()" class="nav-item">
+        <lucide-icon [img]="MoreHorizontalIcon" size="24"></lucide-icon>
+        <span class="nav-label">Otros</span>
+    </button>
+</mat-toolbar>

@@ -1,0 +1,39 @@
+.header-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    height: 40px; // Fixed height to prevent CLS
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-icon {
+    color: #dad5d5; // Contrast color
+}

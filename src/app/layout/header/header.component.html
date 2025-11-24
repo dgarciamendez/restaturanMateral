@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="header-toolbar">
+    <a routerLink="/" class="logo-link">
+        <!-- Placeholder for Logo -->
+        <span class="logo-text">El C-Vichito</span>
+    </a>
+
+    <span class="spacer"></span>
+
+    <div class="actions">
+        <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="User menu">
+            <lucide-icon [img]="UserIcon" class="action-icon"></lucide-icon>
+        </button>
+        <mat-menu #userMenu="matMenu">
+            <button mat-menu-item>
+                <span>Profile</span>
+            </button>
+            <button mat-menu-item>
+                <span>Account</span>
+            </button>
+        </mat-menu>
+
+        <button mat-icon-button routerLink="/configuracion" aria-label="Settings">
+            <lucide-icon [img]="SettingsIcon" class="action-icon"></lucide-icon>
+        </button>
+
+        <button mat-icon-button (click)="logout()" aria-label="Logout">
+            <lucide-icon [img]="LogOutIcon" class="action-icon"></lucide-icon>
+        </button>
+    </div>
+</mat-toolbar>
