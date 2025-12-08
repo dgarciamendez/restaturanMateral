@@ -1,0 +1,90 @@
+<div class="mesa-detail-container">
+    <!-- Left Column: Menu -->
+    <div class="menu-section">
+        <div class="categories-header">
+            <mat-chip-listbox aria-label="Categorias">
+                <mat-chip-option *ngFor="let cat of categorias()" [selected]="selectedCategoriaId() === cat.id"
+                    (selectionChange)="selectCategoria(cat.id)">
+                    {{ cat.nombre }}
+                </mat-chip-option>
+            </mat-chip-listbox>
+        </div>
+
+        <div class="products-grid">
+            <mat-card class="product-card" *ngFor="let prod of filteredProductos()"
+                (click)="addProductToComensal(prod)">
+                <!-- Placeholder for image if needed, or just text -->
+                <div class="product-image-placeholder">
+                    <mat-icon>restaurant</mat-icon>
+                </div>
+                <mat-card-content>
+                    <div class="product-name">{{ prod.nombre }}</div>
+                    <div class="product-price">{{ prod.precio | currency }}</div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <!-- Right Column: Order Summary -->
+    <div class="order-section">
+        <div class="order-header">
+            <button mat-icon-button (click)="goBack()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <h2>Mesa {{ mesaId }}</h2>
+            <span class="spacer"></span>
+            <div class="total-badge">{{ currentPedido()?.total | currency }}</div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="comensales-tabs">
+            <mat-tab-group [selectedIndex]="0"
+                (selectedIndexChange)="selectComensal(currentPedido()!.comensales[$event].id)"
+                *ngIf="currentPedido() as pedido">
+                <mat-tab *ngFor="let comensal of pedido.comensales" [label]="comensal.nombre">
+                    <div class="comensal-order-list">
+                        <div class="empty-state" *ngIf="comensal.items.length === 0">
+                            <p>Sin productos agregados</p>
+                        </div>
+
+                        <div class="order-item" *ngFor="let item of comensal.items">
+                            <div class="item-info">
+                                <span class="item-name">{{ item.producto.nombre }}</span>
+                                <span class="item-price">{{ item.producto.precio * item.cantidad | currency }}</span>
+                            </div>
+
+                            <div class="item-controls">
+                                <button mat-icon-button color="warn" (click)="removeItem(comensal.id, item.id)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                                <div class="quantity-control">
+                                    <button mat-icon-button (click)="decrementItem(comensal.id, item.id)">
+                                        <mat-icon>remove</mat-icon>
+                                    </button>
+                                    <span>{{ item.cantidad }}</span>
+                                    <button mat-icon-button (click)="incrementItem(comensal.id, item.id)">
+                                        <mat-icon>add</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- TODO: Add notes button/input here -->
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+
+            <div class="add-comensal-btn">
+                <button mat-stroked-button color="primary" (click)="addComensal()">
+                    <mat-icon>person_add</mat-icon> Agregar Comensal
+                </button>
+            </div>
+        </div>
+
+        <div class="order-actions">
+            <button mat-flat-button color="primary" class="send-btn">
+                Enviar Pedido a Cocina
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,8 @@
 <mat-toolbar color="primary" class="header-toolbar">
+    <button mat-icon-button (click)="menuToggled.emit()" class="menu-button" aria-label="Toggle menu">
+        <lucide-icon [img]="MenuIcon" class="action-icon"></lucide-icon>
+    </button>
+
     <a routerLink="/" class="logo-link">
         <!-- Placeholder for Logo -->
         <span class="logo-text">El C-Vichito</span>
@@ -28,3 +32,5 @@
         </button>
     </div>
 </mat-toolbar>
+
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate" class="header-progress-bar"></mat-progress-bar>

@@ -1,8 +1,8 @@
 <div class="main-container" [class.is-mobile]="isHandset$ | async">
-    <app-header></app-header>
+    <app-header (menuToggled)="toggleSidenav()"></app-header>
 
     <mat-sidenav-container class="sidenav-container" *ngIf="!(isHandset$ | async); else mobileContent">
-        <mat-sidenav mode="side" opened class="sidenav">
+        <mat-sidenav mode="side" [opened]="isSidenavOpen" class="sidenav">
             <app-sidenav></app-sidenav>
         </mat-sidenav>
         <mat-sidenav-content class="sidenav-content">

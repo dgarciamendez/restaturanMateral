@@ -1,0 +1,127 @@
+.mesa-card-button {
+    width: 100%;
+    height: 100%;
+    min-height: 140px;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: transparent;
+    position: relative;
+
+    // Base shadow (MatElevation 2)
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
+    &:hover:not(.loading) {
+        transform: translateY(-2px);
+        // Increased shadow on hover
+        box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+            0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+            0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+    }
+
+    &.loading {
+        pointer-events: none;
+        opacity: 0.7;
+    }
+}
+
+.mesa-card-content {
+    background: #ffffff;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 16px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    border-left: 6px solid;
+
+    // State-based left border colors
+    &.libre {
+        border-left-color: #dad5d5;
+        color: #13425f;
+
+        .status-icon {
+            color: #13425f;
+        }
+    }
+
+    &.ocupada {
+        border-left-color: #e86818;
+        color: #13425f;
+
+        .status-icon {
+            color: #13425f;
+        }
+    }
+
+    &.esperando_cuenta {
+        border-left-color: #e3322c;
+        color: #13425f;
+
+        .status-icon {
+            color: #13425f;
+        }
+    }
+}
+
+.mesa-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.mesa-numero {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #13425f;
+}
+
+.status-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+}
+
+.mesa-status {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #13425f;
+    margin-bottom: 8px;
+}
+
+.mesa-timer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.875rem;
+    margin-top: auto;
+    color: #13425f;
+
+    mat-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}

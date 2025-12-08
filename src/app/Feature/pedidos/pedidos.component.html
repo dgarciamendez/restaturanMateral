@@ -1,3 +1,7 @@
 <app-page-layout pageTitle="Toma de Pedidos">
-    <p>Contenido de pedidos...</p>
+    <div class="mesas-grid" [style.grid-template-columns]="'repeat(' + gridCols + ', 1fr)'">
+        <app-mesa-card *ngFor="let mesa of mesas" [mesa]="mesa" [isLoading]="loadingMesaId() === mesa.id"
+            (click)="onMesaClick(mesa)">
+        </app-mesa-card>
+    </div>
 </app-page-layout>

@@ -1,0 +1,14 @@
+.mesas-grid {
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    // Ensure grid items (cards) stretch to fill their cell
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+// Ensure MesaCardComponent host element takes full height of the grid cell
+::ng-deep app-mesa-card {
+    display: block;
+    height: 100%;
+}

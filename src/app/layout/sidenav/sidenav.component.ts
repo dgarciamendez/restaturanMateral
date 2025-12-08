@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LucideAngularModule, Utensils, Truck, Banknote, MoreHorizontal, FileText, Database, Settings } from 'lucide-angular';
 
@@ -10,6 +11,7 @@ import { LucideAngularModule, Utensils, Truck, Banknote, MoreHorizontal, FileTex
   imports: [
     MatListModule,
     MatExpansionModule,
+    MatDividerModule,
     RouterLink,
     RouterLinkActive,
     LucideAngularModule

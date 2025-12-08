@@ -1,0 +1,26 @@
+<button mat-flat-button class="mesa-card-button" [class.loading]="isLoading">
+    <mat-card class="mesa-card-content" [class]="mesa.estado">
+        <div class="mesa-header">
+            <span class="mesa-numero">Mesa {{ mesa.numero }}</span>
+            <mat-icon class="status-icon">
+                {{ mesa.estado === 'libre' ? 'check_circle' :
+                mesa.estado === 'ocupada' ? 'local_dining' : 'receipt_long' }}
+            </mat-icon>
+        </div>
+
+        <div class="mesa-status">
+            {{ mesa.estado === 'libre' ? 'Libre' :
+            mesa.estado === 'ocupada' ? 'Ocupada' : 'Cuenta' }}
+        </div>
+
+        <div class="mesa-timer" *ngIf="mesa.estado === 'ocupada'">
+            <mat-icon>schedule</mat-icon>
+            <span>{{ tiempoTranscurrido }}</span>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" *ngIf="isLoading">
+            <mat-spinner diameter="40"></mat-spinner>
+        </div>
+    </mat-card>
+</button>

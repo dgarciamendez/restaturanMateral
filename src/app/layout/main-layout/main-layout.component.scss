@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 100vh;
     overflow: hidden; // Prevent double scrollbars
+    padding-top: var(--header-height);
 }
 
 .sidenav-container {
